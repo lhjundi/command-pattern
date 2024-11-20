@@ -2,7 +2,7 @@ package com.lhjundi.ordersystem.application.invoker;
 
 import com.lhjundi.ordersystem.application.command.Command;
 
-public class OrderInvoker {
+public final class OrderInvoker {
     private Command command;
 
     public void setCommand(Command command) {

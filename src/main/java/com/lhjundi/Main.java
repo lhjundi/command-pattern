@@ -3,8 +3,8 @@ package com.lhjundi;
 import com.lhjundi.ordersystem.domain.model.Customer;
 import com.lhjundi.ordersystem.domain.model.Order;
 import com.lhjundi.ordersystem.domain.repository.GenericRepository;
-import com.lhjundi.ordersystem.domain.repository.client.InMemoryCustomerRepository;
-import com.lhjundi.ordersystem.domain.repository.order.InMemoryOrderRepository;
+import com.lhjundi.ordersystem.domain.repository.InMemoryCustomerRepository;
+import com.lhjundi.ordersystem.domain.repository.InMemoryOrderRepository;
 import com.lhjundi.ordersystem.presentation.OrderClient;
 
 import java.math.BigDecimal;

@@ -3,7 +3,7 @@ package com.lhjundi.ordersystem.domain.model;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Customer {
+public final class Customer {
     private final String id;
     private final String name;
     private final String email;

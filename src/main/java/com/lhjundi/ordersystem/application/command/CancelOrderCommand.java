@@ -2,7 +2,7 @@ package com.lhjundi.ordersystem.application.command;
 
 import com.lhjundi.ordersystem.application.receiver.OrderReceiver;
 
-public class CancelOrderCommand implements Command {
+public final class CancelOrderCommand implements Command {
     private final OrderReceiver receiver;
     private final String orderId;
 

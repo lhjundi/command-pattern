@@ -2,7 +2,7 @@ package com.lhjundi.ordersystem.application.receiver;
 
 import com.lhjundi.ordersystem.domain.model.Customer;
 import com.lhjundi.ordersystem.domain.model.Order;
-import com.lhjundi.ordersystem.domain.repository.OrderRepository;
+import com.lhjundi.ordersystem.domain.repository.order.OrderRepository;
 
 import java.math.BigDecimal;
 

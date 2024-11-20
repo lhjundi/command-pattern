@@ -1,7 +1,6 @@
 package com.lhjundi.ordersystem.application.command;
 
 import com.lhjundi.ordersystem.application.receiver.OrderReceiver;
-import com.lhjundi.ordersystem.domain.repository.OrderRepository;
 
 import java.math.BigDecimal;
 

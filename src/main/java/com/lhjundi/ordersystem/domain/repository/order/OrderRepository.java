@@ -1,4 +1,4 @@
-package com.lhjundi.ordersystem.domain.repository;
+package com.lhjundi.ordersystem.domain.repository.order;
 
 import com.lhjundi.ordersystem.domain.model.Order;
 

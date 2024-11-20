@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static java.util.FormatProcessor.FMT;
+
 public final class Order {
     private final String id;
     private final Customer customer;
@@ -103,6 +105,25 @@ public final class Order {
 
     public List<StatusChange> getStatusHistory() {
         return new ArrayList<>(statusHistory);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder history = new StringBuilder();
+        statusHistory.forEach(change ->
+                history.append(String.format("Status: %s, Time: %s, Reason: %s%n",
+                        change.status(), change.changedAt(), change.reason())));
+
+        return STR."""
+
+                Order details:
+                ID: \{id}
+                Customer: \{customer.getName()}
+                Amount: \{amount}
+                Status: \{status}
+
+                Order history:
+                \{history}""";
     }
 
     @Override

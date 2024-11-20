@@ -38,21 +38,7 @@ public class Main {
             }
 
             // Verify final state
-            orderRepository.findById("ORD-001").ifPresent(order -> {
-                System.out.println("\nOrder details:");
-                System.out.println(STR."ID: \{order.getId()}");
-                System.out.println(STR."Customer: \{order.getCustomer().getName()}");
-                System.out.println(STR."Amount: \{order.getAmount()}");
-                System.out.println(STR."Status: \{order.getStatus()}");
-                System.out.println("\nOrder history:");
-                order.getStatusHistory().forEach(change ->
-                        System.out.printf("Status: %s, Time: %s, Reason: %s%n",
-                                change.status(),
-                                change.changedAt(),
-                                change.reason()
-                        )
-                );
-            });
+            orderRepository.findById("ORD-001").ifPresent(System.out::println);
 
         } catch (Exception e) {
             System.err.println(STR."Error: \{e.getMessage()}");

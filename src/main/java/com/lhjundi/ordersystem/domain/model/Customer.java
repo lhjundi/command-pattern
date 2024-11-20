@@ -68,6 +68,11 @@ public final class Customer {
     }
 
     @Override
+    public String toString() {
+        return STR."Customer{id='\{id}\{'\''}, name='\{name}\{'\''}, email='\{email}\{'\''}, document='\{document}\{'\''}, createdAt=\{createdAt}\{'}'}";
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

@@ -1,17 +1,60 @@
 package com.lhjundi;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import com.lhjundi.ordersystem.domain.repository.client.CustomerRepository;
+import com.lhjundi.ordersystem.domain.repository.client.InMemoryCustomerRepository;
+import com.lhjundi.ordersystem.domain.repository.order.InMemoryOrderRepository;
+import com.lhjundi.ordersystem.domain.repository.order.OrderRepository;
+import com.lhjundi.ordersystem.presentation.OrderClient;
+
+import java.math.BigDecimal;
+
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        OrderRepository orderRepository = new InMemoryOrderRepository();
+        CustomerRepository customerRepository = new InMemoryCustomerRepository();
+        OrderClient client = new OrderClient(orderRepository, customerRepository);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        try {
+            // Create customer first
+            client.createCustomer(
+                    "CUST-001",
+                    "John Doe",
+                    "john.doe@example.com",
+                    "123456789"
+            );
+
+            // Process order
+            client.processOrder("ORD-001", "CUST-001", new BigDecimal("199.99"));
+            System.out.println("Order processed successfully");
+
+            // Try to cancel order
+            try {
+                client.cancelOrder("ORD-001");
+                System.out.println("Order cancelled successfully");
+            } catch (RuntimeException e) {
+                System.out.println(STR."Cancel failed: \{e.getMessage()}");
+            }
+
+            // Verify final state
+            orderRepository.findById("ORD-001").ifPresent(order -> {
+                System.out.println("\nOrder details:");
+                System.out.println(STR."ID: \{order.getId()}");
+                System.out.println(STR."Customer: \{order.getCustomer().getName()}");
+                System.out.println(STR."Amount: \{order.getAmount()}");
+                System.out.println(STR."Status: \{order.getStatus()}");
+                System.out.println("\nOrder history:");
+                order.getStatusHistory().forEach(change ->
+                        System.out.printf("Status: %s, Time: %s, Reason: %s%n",
+                                change.status(),
+                                change.changedAt(),
+                                change.reason()
+                        )
+                );
+            });
+
+        } catch (Exception e) {
+            System.err.println(STR."Error: \{e.getMessage()}");
+            e.printStackTrace();
         }
-    }
-}
+    }}

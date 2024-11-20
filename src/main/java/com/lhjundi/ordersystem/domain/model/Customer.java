@@ -47,11 +47,25 @@ public class Customer {
         }
     }
 
-    public String getId() { return id; }
-    public String getName() { return name; }
-    public String getEmail() { return email; }
-    public String getDocument() { return document; }
-    public LocalDateTime getCreatedAt() { return createdAt; }
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getDocument() {
+        return document;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 
     @Override
     public boolean equals(Object o) {

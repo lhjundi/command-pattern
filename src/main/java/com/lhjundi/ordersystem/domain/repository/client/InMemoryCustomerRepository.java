@@ -5,6 +5,7 @@ import com.lhjundi.ordersystem.domain.model.Customer;
 import java.util.*;
 
 public class InMemoryCustomerRepository implements CustomerRepository {
+
     private final Map<String, Customer> customers = new HashMap<>();
 
     @Override
@@ -16,6 +17,7 @@ public class InMemoryCustomerRepository implements CustomerRepository {
     public Optional<Customer> findById(String customerId) {
         return Optional.ofNullable(customers.get(customerId));
     }
+
 
     @Override
     public List<Customer> findAll() {

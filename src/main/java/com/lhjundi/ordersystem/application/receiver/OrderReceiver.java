@@ -6,7 +6,7 @@ import com.lhjundi.ordersystem.domain.repository.GenericRepository;
 
 import java.math.BigDecimal;
 
-public class OrderReceiver {
+public final class OrderReceiver {
     private final GenericRepository<Order, String> orderRepository;
     private final GenericRepository<Customer, String> customerRepository;
 

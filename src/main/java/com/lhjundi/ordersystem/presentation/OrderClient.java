@@ -11,7 +11,7 @@ import com.lhjundi.ordersystem.domain.repository.GenericRepository;
 
 import java.math.BigDecimal;
 
-public class OrderClient {
+public final class OrderClient {
     private final OrderReceiver receiver;
     private final OrderInvoker invoker;
     private final GenericRepository<Customer, String> customerRepository;

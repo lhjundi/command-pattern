@@ -4,7 +4,7 @@ import com.lhjundi.ordersystem.application.receiver.OrderReceiver;
 
 import java.math.BigDecimal;
 
-public class ProcessOrderCommand implements Command {
+public final class ProcessOrderCommand implements Command {
 
     private final OrderReceiver receiver;
     private final String orderId;

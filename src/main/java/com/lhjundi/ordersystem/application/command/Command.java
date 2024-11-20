@@ -1,6 +1,6 @@
 package com.lhjundi.ordersystem.application.command;
 
-public interface Command {
+public sealed interface Command permits CancelOrderCommand, ProcessOrderCommand {
 
     void execute();
 

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Order {
+public final class Order {
     private final String id;
     private final Customer customer;
     private final LocalDateTime createdAt;

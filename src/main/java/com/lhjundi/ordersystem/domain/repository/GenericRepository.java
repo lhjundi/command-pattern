@@ -3,7 +3,7 @@ package com.lhjundi.ordersystem.domain.repository;
 import java.util.List;
 import java.util.Optional;
 
-public interface GenericRepository <T, K>{
+public sealed interface GenericRepository<T, K> permits InMemoryCustomerRepository, InMemoryOrderRepository {
 
     void save(T type);
 

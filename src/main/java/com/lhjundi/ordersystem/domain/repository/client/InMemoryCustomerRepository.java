@@ -1,10 +1,11 @@
 package com.lhjundi.ordersystem.domain.repository.client;
 
 import com.lhjundi.ordersystem.domain.model.Customer;
+import com.lhjundi.ordersystem.domain.repository.GenericRepository;
 
 import java.util.*;
 
-public class InMemoryCustomerRepository implements CustomerRepository {
+public class InMemoryCustomerRepository implements GenericRepository<Customer, String> {
 
     private final Map<String, Customer> customers = new HashMap<>();
 

@@ -1,10 +1,11 @@
 package com.lhjundi.ordersystem.domain.repository.order;
 
 import com.lhjundi.ordersystem.domain.model.Order;
+import com.lhjundi.ordersystem.domain.repository.GenericRepository;
 
 import java.util.*;
 
-public class InMemoryOrderRepository implements OrderRepository {
+public class InMemoryOrderRepository implements GenericRepository<Order, String> {
 
     private final Map<String, Order> orders = new HashMap<>();
 

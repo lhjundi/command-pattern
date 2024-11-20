@@ -2,16 +2,15 @@ package com.lhjundi.ordersystem.application.receiver;
 
 import com.lhjundi.ordersystem.domain.model.Customer;
 import com.lhjundi.ordersystem.domain.model.Order;
-import com.lhjundi.ordersystem.domain.repository.client.CustomerRepository;
-import com.lhjundi.ordersystem.domain.repository.order.OrderRepository;
+import com.lhjundi.ordersystem.domain.repository.GenericRepository;
 
 import java.math.BigDecimal;
 
 public class OrderReceiver {
-    private final OrderRepository orderRepository;
-    private final CustomerRepository customerRepository;
+    private final GenericRepository<Order, String> orderRepository;
+    private final GenericRepository<Customer, String> customerRepository;
 
-    public OrderReceiver(OrderRepository orderRepository, CustomerRepository customerRepository) {
+    public OrderReceiver(GenericRepository<Order, String> orderRepository, GenericRepository<Customer, String> customerRepository) {
         this.orderRepository = orderRepository;
         this.customerRepository = customerRepository;
     }

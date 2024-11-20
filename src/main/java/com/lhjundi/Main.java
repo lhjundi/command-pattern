@@ -1,9 +1,10 @@
 package com.lhjundi;
 
-import com.lhjundi.ordersystem.domain.repository.client.CustomerRepository;
+import com.lhjundi.ordersystem.domain.model.Customer;
+import com.lhjundi.ordersystem.domain.model.Order;
+import com.lhjundi.ordersystem.domain.repository.GenericRepository;
 import com.lhjundi.ordersystem.domain.repository.client.InMemoryCustomerRepository;
 import com.lhjundi.ordersystem.domain.repository.order.InMemoryOrderRepository;
-import com.lhjundi.ordersystem.domain.repository.order.OrderRepository;
 import com.lhjundi.ordersystem.presentation.OrderClient;
 
 import java.math.BigDecimal;
@@ -11,8 +12,8 @@ import java.math.BigDecimal;
 
 public class Main {
     public static void main(String[] args) {
-        OrderRepository orderRepository = new InMemoryOrderRepository();
-        CustomerRepository customerRepository = new InMemoryCustomerRepository();
+        GenericRepository<Order, String> orderRepository = new InMemoryOrderRepository();
+        GenericRepository<Customer, String> customerRepository = new InMemoryCustomerRepository();
         OrderClient client = new OrderClient(orderRepository, customerRepository);
 
         try {

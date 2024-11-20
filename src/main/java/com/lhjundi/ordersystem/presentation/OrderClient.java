@@ -6,17 +6,17 @@ import com.lhjundi.ordersystem.application.command.ProcessOrderCommand;
 import com.lhjundi.ordersystem.application.invoker.OrderInvoker;
 import com.lhjundi.ordersystem.application.receiver.OrderReceiver;
 import com.lhjundi.ordersystem.domain.model.Customer;
-import com.lhjundi.ordersystem.domain.repository.client.CustomerRepository;
-import com.lhjundi.ordersystem.domain.repository.order.OrderRepository;
+import com.lhjundi.ordersystem.domain.model.Order;
+import com.lhjundi.ordersystem.domain.repository.GenericRepository;
 
 import java.math.BigDecimal;
 
 public class OrderClient {
     private final OrderReceiver receiver;
     private final OrderInvoker invoker;
-    private final CustomerRepository customerRepository;
+    private final GenericRepository<Customer, String> customerRepository;
 
-    public OrderClient(OrderRepository orderRepository, CustomerRepository customerRepository) {
+    public OrderClient(GenericRepository<Order, String> orderRepository, GenericRepository<Customer, String> customerRepository) {
         this.customerRepository = customerRepository;
         this.receiver = new OrderReceiver(orderRepository, customerRepository);
         this.invoker = new OrderInvoker();

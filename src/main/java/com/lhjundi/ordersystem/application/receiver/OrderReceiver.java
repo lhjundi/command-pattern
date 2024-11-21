@@ -7,10 +7,12 @@ import com.lhjundi.ordersystem.domain.repository.GenericRepository;
 import java.math.BigDecimal;
 
 public final class OrderReceiver {
+
     private final GenericRepository<Order, String> orderRepository;
     private final GenericRepository<Customer, String> customerRepository;
 
-    public OrderReceiver(GenericRepository<Order, String> orderRepository, GenericRepository<Customer, String> customerRepository) {
+    public OrderReceiver(GenericRepository<Order, String> orderRepository,
+                         GenericRepository<Customer, String> customerRepository) {
         this.orderRepository = orderRepository;
         this.customerRepository = customerRepository;
     }
@@ -23,7 +25,7 @@ public final class OrderReceiver {
 
             Order order = new Order(orderId, customer, amount);
             order.process();
-            simulateProcessing(amount);
+            simulateProcessing();
             order.complete();
             orderRepository.save(order);
         } catch (Exception e) {
@@ -42,7 +44,7 @@ public final class OrderReceiver {
         }
     }
 
-    private void simulateProcessing(BigDecimal amount) {
+    private void simulateProcessing() {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {

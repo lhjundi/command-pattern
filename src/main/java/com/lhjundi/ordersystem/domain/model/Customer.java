@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public final class Customer {
     private final String id;
-    private final String name;
-    private final String email;
+    private  String name;
+    private  String email;
     private final String document;
     private final LocalDateTime createdAt;
 
@@ -65,6 +65,14 @@ public final class Customer {
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
